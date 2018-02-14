@@ -55,6 +55,7 @@ module PagerApi
           {}.tap do |paging|
             paging[:first] = 1
             paging[:last] = collection.total_pages
+            paging[:current] = collection.current_page
 
             paging[:prev] = collection.current_page - 1 unless collection.first_page?
             paging[:next] = collection.current_page + 1 unless collection.last_page? or collection.current_page >= collection.total_pages
